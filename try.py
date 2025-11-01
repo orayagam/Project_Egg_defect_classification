@@ -3,6 +3,7 @@ import os
 from pipeline import load_model, full_pipeline
 from PIL import Image
 import base64
+import tempfile
 
 # --- Page Config ---
 st.set_page_config(page_title="Egg Defect Detection and Classification", layout="wide")
@@ -204,8 +205,8 @@ if uploaded_file is not None:
     with open(input_path, "wb") as f:
         f.write(uploaded_file.read())
 
-    output_folder = "outputs"
-    os.makedirs(output_folder, exist_ok=True)
+    output_folder = tempfile.mkdtemp()
+    # os.makedirs(output_folder, exist_ok=True)
     output_path = os.path.join(output_folder, f"{uploaded_file.name}_detected.mp4")
 
     st.markdown(
@@ -270,6 +271,7 @@ if uploaded_file is not None:
                 file_name="output_detected.mp4",
                 mime="video/mp4"
             )
+
 
 
 
