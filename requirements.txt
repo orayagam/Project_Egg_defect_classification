@@ -1,0 +1,9 @@
+streamlit
+ultralytics
+opencv-python-headless
+deep_sort_realtime
+rembg
+Pillow
+onnxruntime
+torch
+numpy
