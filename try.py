@@ -17,7 +17,7 @@ def stop_process():
     st.session_state.stop_processing = True
 
 # --- Background Image ---
-image_path = r"C:\Users\user\OneDrive\เอกสาร\Code-App\eggs-on-conveyor-1.jpg"
+image_path = "eggs-on-conveyor-1.jpg"
 img_base64 = get_base64_of_image(image_path)
 
 st.markdown(
@@ -270,3 +270,4 @@ if uploaded_file is not None:
                 file_name="output_detected.mp4",
                 mime="video/mp4"
             )
+
