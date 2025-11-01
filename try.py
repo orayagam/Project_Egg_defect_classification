@@ -182,7 +182,7 @@ st.markdown('<div class="center-title">EGG DEFECT DETECTION AND CLASSIFICATION</
 status_placeholder = st.empty()
 
 # --- Load Model ---
-MODEL_PATH = r"C:\Users\user\OneDrive\เอกสาร\Code-App\model\best.pt"
+MODEL_PATH = "model\best.pt"
 if "model" not in st.session_state:
     st.session_state.model = load_model(MODEL_PATH)
 model = st.session_state.model
@@ -270,4 +270,5 @@ if uploaded_file is not None:
                 file_name="output_detected.mp4",
                 mime="video/mp4"
             )
+
 
