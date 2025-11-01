@@ -198,10 +198,10 @@ if "process_done" not in st.session_state:
 
 # --- Video Processing ---
 if uploaded_file is not None:
-    input_folder = "temp_inputs"
-    os.makedirs(input_folder, exist_ok=True)
+    input_folder = tempfile.mkdtemp()
+    # os.makedirs(input_folder, exist_ok=True)
     input_path = os.path.join(input_folder, uploaded_file.name)
-
+    
     with open(input_path, "wb") as f:
         f.write(uploaded_file.read())
 
@@ -273,6 +273,7 @@ if uploaded_file is not None:
             )
     else:
         st.warning("No processed video found. Please start processing first.")
+
 
 
 
