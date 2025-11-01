@@ -255,7 +255,7 @@ if uploaded_file is not None:
             )
 
     # --- Show Result Video ---
-    if st.session_state.get("process_done", False):
+    if st.session_state.get("process_done", False) and os.path.exists(st.session_state.output_path):
         st.markdown(
             '<h3 style="color: #FFFFFF; font-family: Roboto Condensed; font-weight:bold;">Result Video</h3>',
             unsafe_allow_html=True
@@ -263,7 +263,7 @@ if uploaded_file is not None:
         with open(st.session_state.output_path, "rb") as f:
             video_bytes = f.read()
         st.video(video_bytes)
-
+    
         with open(st.session_state.output_path, "rb") as f:
             st.download_button(
                 label="Download Processed Video",
@@ -271,6 +271,9 @@ if uploaded_file is not None:
                 file_name="output_detected.mp4",
                 mime="video/mp4"
             )
+    else:
+        st.warning("No processed video found. Please start processing first.")
+
 
 
 
